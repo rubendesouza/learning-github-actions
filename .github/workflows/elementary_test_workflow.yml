@@ -1,0 +1,18 @@
+name: Elementary Test
+
+on:
+  workflow_dispatch:
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Python Version
+        run: python --version
+
+      - name: Hello World
+        run: python helloworld.py
+ 
