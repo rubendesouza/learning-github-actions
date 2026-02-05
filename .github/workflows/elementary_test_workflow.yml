@@ -29,4 +29,12 @@ jobs:
           NAME: ${{ inputs.name }}
         run: |
           echo "The workflow $TITLE was triggered by $NAME"
+
+      - name: Status
+        id: test_status
+        run: echo "status=ok" >> $GITHUB_OUTPUT
+
+      - name: Use output variables
+        if: steps.test_status.outputs.status == 'ok'
+        run: echo Status is okay
       
