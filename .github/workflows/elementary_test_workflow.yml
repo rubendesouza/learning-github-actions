@@ -2,6 +2,13 @@ name: Elementary Test
 
 on:
   workflow_dispatch:
+    inputs:
+      title:
+        description: 'Title'
+        required: true
+      name: 
+        description: 'Name'
+        required: true
  
 jobs:
   build:
@@ -15,4 +22,11 @@ jobs:
 
       - name: Hello World
         run: python helloworld.py
- 
+
+      - name: Processing Inputs
+        env:
+          TITLE: ${{ inputs.title }}
+          NAME: ${{ inputs.name }}
+        run: |
+          echo "The workflow $TITLE was triggered by $NAME"
+      
